@@ -1,0 +1,47 @@
+<header class="top-navbar" id="main-navbar">
+    <div class="navbar-inner">
+        <div class="navbar-left">
+            <a href="{{ .Site.Home.RelPermalink }}" class="navbar-brand">
+                <span class="navbar-logo">🐶</span>
+                <span class="navbar-title">{{ .Site.Title }}</span>
+            </a>
+        </div>
+        <div class="navbar-center">
+            {{- partial "menu.html" (dict "menuID" "main" "page" .) -}}
+        </div>
+        <div class="navbar-right">
+            <form class="navbar-search" action="{{ "search" | relLangURL }}" method="get" id="search-form">
+                <input type="text" id="search-input" name="q" placeholder="{{ T "search" }}..." autocomplete="off"/>
+                <div id="search-overlay" class="search-overlay">
+                    <div class="search-modal">
+                        <div class="search-header">
+                            <h2>{{ T "searchResults" }}</h2>
+                            <button id="close-search" class="close-button">&times;</button>
+                        </div>
+                        <div id="search-results" class="search-results"></div>
+                    </div>
+                </div>
+            </form>
+            <a class="navbar-icon" href="{{ .Site.Params.githubRepoUrl }}" target="_blank" title="GitHub" aria-label="GitHub"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0112 6.8c.85.004 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.58.69.48A10.01 10.01 0 0022 12.26C22 6.58 17.52 2 12 2z"></path></svg></a>
+            <div class="language-switcher">
+                <a class="navbar-icon" href="#" title="{{ T "language" }}" aria-label="{{ T "language" }}"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"></path></svg></a>
+                <div class="language-dropdown">
+                    {{ range .Site.Languages }}
+                        <a href="/{{ .Lang }}/" {{ if eq $.Site.Language.Lang .Lang }}class="active"{{ end }}>{{ .LanguageName }}</a>
+                    {{ end }}
+                </div>
+            </div>
+            <i class="fas fa-adjust navbar-icon" id="dark-mode-toggle" title="{{ T "darkMode" }}"></i>
+            <button id="navbar-close-btn" class="navbar-close-btn" title="{{ T "closeNavbar" }}" aria-label="{{ T "closeNavbar" }}">×</button>
+        </div>
+    </div>
+</header>
+
+<!-- Algolia configuration -->
+<script>
+    window.algoliaConfig = {
+        appId: '{{ .Site.Params.algolia.appId }}',
+        apiKey: '{{ .Site.Params.algolia.apiKey }}',
+        indexName: '{{ .Site.Params.algolia.indexName }}'
+    };
+</script>

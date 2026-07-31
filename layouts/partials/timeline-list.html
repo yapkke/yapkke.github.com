@@ -1,0 +1,40 @@
+{{/* timeline-list.html: 通用时间轴列表，供section/term/taxonomy等页面复用 */}}
+<div class="posts-container list-layout">
+  <div class="timeline-wrapper">
+    <div class="timeline-title">
+      <span class="timeline-title-dot"></span>
+      {{ .Title }} - {{ len .Pages }}
+    </div>
+    <div class="timeline">
+      {{ $groups := .Pages.GroupByDate "2006" }}
+      {{ range $groups }}
+        <div class="timeline-year">
+          <span class="timeline-year-dot"></span>
+          <span class="timeline-year-label">{{ .Key }}</span>
+        </div>
+        {{ range .Pages }}
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="timeline-date">🗓️ {{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            <div class="timeline-main">
+              {{ with .Params.thumbnail }}
+                {{ $thumb := resources.Get . }}
+                {{ if $thumb }}
+                  {{ $thumbWebp := $thumb.Resize "100x75 webp" }}
+                  <img class="timeline-thumb" src="{{ $thumbWebp.RelPermalink }}" alt="{{ $.Title }}" />
+                {{ else }}
+                  <img class="timeline-thumb" src="{{ . | absURL }}" alt="{{ $.Title }}" />
+                {{ end }}
+              {{ end }}
+              <a class="timeline-title-link" href="{{ .Permalink }}">{{ .Title }}</a>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>

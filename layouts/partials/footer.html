@@ -1,0 +1,27 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-links">
+      <div class="footer-section">
+        <h3 class="footer-title">{{ T "friendLinks" }}</h3>
+        <ul class="friend-links">
+          {{ range .Site.Language.Params.friendshipLinks }}
+          <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3 class="footer-title">{{ T "more" }}</h3>
+        <ul class="footer-menu">
+          <li><a href="{{ "/archive/" | relLangURL }}">{{ T "archive" }}</a></li>
+          <li><a href="{{ "/sitemap.xml" | relLangURL }}">{{ T "sitemap" }}</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ now.Year }} <a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>. {{ T "allRightsReserved" }}</p>
+      <p class="footer-powered-by">{{ T "poweredBy" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></p>
+    </div>
+  </div>
+</footer>
