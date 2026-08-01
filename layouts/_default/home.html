@@ -27,9 +27,9 @@
         {{ end }}
       </div>
       <div class="post-content">
-        <div class="post-body">
+        <a href="{{ .RelPermalink }}" class="post-body">
           {{ .Content | plainify | truncate 200 }}
-        </div>
+        </a>
       </div>
     </div>
   </article>
