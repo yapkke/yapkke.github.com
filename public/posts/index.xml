@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Yup I&#39;m Yap</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Yup I&#39;m Yap</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2026 16:53:31 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Whoami</title>
+      <link>http://localhost:1313/posts/whoami/</link>
+      <pubDate>Fri, 31 Jul 2026 16:53:31 -0700</pubDate>
+      <guid>http://localhost:1313/posts/whoami/</guid>
+      <description>My name Kok-Kiong Yap, and I go by KK. My Chinese name is 叶国强, which does get romanized as Ye Guoqiang.</description>
+    </item>
+  </channel>
+</rss>
