@@ -1,0 +1,88 @@
+{{ define "main" }}
+  {{ with .Params.featured_image }}
+    <div class="post-featured-image-card">
+      <div class="featured-image-container">
+        <img src="{{ . | absURL }}" alt="{{ $.Title }}" onerror="this.style.display='none';" />
+      </div>
+    </div>
+  {{ end }}
+  <div class="post-detail-card">
+    <h1 class="post-detail-title">{{ .Title }}</h1>
+    <div class="post-detail-meta">
+      {{ with .Params.categories }}
+      <span class="meta-item"><span class="meta-icon">📁</span>
+        {{ range $index, $category := . }}
+          {{ if gt $index 0 }}, {{ end }}<a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+      {{ with .Params.author }} 
+      <span class="meta-item"><span class="meta-icon">✍️</span> {{ . }}</span>
+      {{ end }}
+      <span class="meta-item" id="page-views">
+        <span class="meta-icon">👁️</span>
+        <span class="meta-text">{{ T "pageViewCount" }}: 
+          <span id="busuanzi_value_page_pv">-</span>
+        </span>
+      </span>
+    </div>
+    <div class="post-detail-content">
+      {{ .Content | replaceRE "<img src=\"([^\"]+)\"" "<img src=\"$1\" onclick=\"enlargeImage(this)\"" | safeHTML }}
+    </div>
+    <div class="post-detail-tags">
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    </div>
+  </div>
+  
+  <!-- 评论卡片 -->
+  {{ partial "comments-card.html" . }}
+  
+  <script>
+    // 页面加载完成后显示访问量
+    document.addEventListener('DOMContentLoaded', function() {
+      const pageViewsContainer = document.getElementById('page-views');
+      if (pageViewsContainer) {
+        pageViewsContainer.style.display = 'inline';
+      }
+    });
+    
+    // 图片点击放大功能
+    function enlargeImage(img) {
+      // 创建遮罩层
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        cursor: pointer;
+      `;
+      
+      // 创建放大图片
+      const enlargedImg = document.createElement('img');
+      enlargedImg.src = img.src;
+      enlargedImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      `;
+      
+      // 添加到遮罩层
+      overlay.appendChild(enlargedImg);
+      
+      // 点击关闭
+      overlay.addEventListener('click', function() {
+        document.body.removeChild(overlay);
+      });
+      
+      // 添加到页面
+      document.body.appendChild(overlay);
+    }
+  </script>
+{{ end }}
