@@ -2,7 +2,12 @@
     <div class="navbar-inner">
         <div class="navbar-left">
             <a href="{{ .Site.Home.RelPermalink }}" class="navbar-brand">
+                {{- $logo := resources.Get "images/logo.svg" -}}
+                {{- if $logo -}}
+                <img class="navbar-logo" src="{{ $logo.RelPermalink }}" alt="{{ .Site.Title }} logo" height="32" width="32" />
+                {{- else -}}
                 <span class="navbar-logo">🐶</span>
+                {{- end -}}
                 <span class="navbar-title">{{ .Site.Title }}</span>
             </a>
         </div>
