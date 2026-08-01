@@ -1,0 +1,106 @@
+[home]
+other = "首页"
+
+[archive]
+other = "归档"
+
+[tags]
+other = "标签"
+
+[categories]
+other = "分类"
+
+[search]
+other = "搜索"
+
+[language]
+other = "语言"
+
+[featuredImage]
+other = "特色图片"
+
+[readingTime]
+one = "约 {{ .Count }} 分钟"
+other = "约 {{ .Count }} 分钟"
+
+[wordCount]
+one = "{{ .Count }} 字"
+other = "{{ .Count }} 字"
+
+[next]
+other = "下一页"
+
+[previous]
+other = "上一页"
+
+[readMore]
+other = "阅读更多"
+
+[noResults]
+other = "没有找到相关结果"
+
+[searchResults]
+other = "搜索结果"
+
+[close]
+other = "关闭"
+
+[pageNotFound]
+other = "页面未找到"
+
+[siteInfo]
+other = "网站信息"
+
+[articleCount]
+other = "文章数目"
+
+[visitorCount]
+other = "本站访客数"
+
+[pageViewCount]
+other = "访问量"
+
+[sitePageViewCount]
+other = "站点访问量"
+
+[lastUpdated]
+other = "最后更新时间"
+
+[friendLinks]
+other = "友情链接"
+
+[sitemap]
+other = "站点地图"
+
+[poweredBy]
+other = "基于"
+
+[posts]
+other = "文章"
+
+[about]
+other = "关于"
+
+[contact]
+other = "联系"
+
+[more]
+other = "更多"
+
+[allRightsReserved]
+other = "保留所有权利."
+
+[searchInitFailed]
+other = "搜索功能初始化失败"
+
+[darkMode]
+other = "切换深色模式"
+
+[closeNavbar]
+other = "关闭导航栏"
+
+[switchToListLayout]
+other = "切换到列表布局"
+
+[switchToGridLayout]
+other = "切换到网格布局"
