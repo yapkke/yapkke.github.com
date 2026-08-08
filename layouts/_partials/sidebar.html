@@ -1,0 +1,40 @@
+<div class="sidebar">
+
+    <div class="card">
+        <h4><i class="fas fa-folder"></i> {{ T "categories" }}</h4>
+        <ul>
+            {{ range site.Taxonomies.categories.ByCount }}
+            <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a></li>
+            {{ end }}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4><i class="fas fa-tags"></i> {{ T "tags" }}</h4>
+        <div class="tags">
+            {{ range site.Taxonomies.tags.ByCount }}
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="card">
+        <h4><i class="fas fa-archive"></i> {{ T "archive" }}</h4>
+        <ul>
+            {{ range (where (where site.RegularPages ".Lang" .Lang) "Type" "posts").GroupByDate "2006-01" }}
+            <li><a href="{{ "/archive/" | relLangURL }}#{{ .Key }}">{{ .Key }} ({{ len .Pages }})</a></li>
+            {{ end }}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4><i class="fas fa-info-circle"></i> {{ T "siteInfo" }}</h4>
+        <ul>
+            <li>{{ T "articleCount" }}: {{ len (where site.RegularPages "Type" "in" site.Params.mainSections) }}</li>
+            <li>{{ T "visitorCount" }}: <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span></span></li>
+            <li>{{ T "sitePageViewCount" }}: <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span></span></li>
+            <li>{{ T "lastUpdated" }}: {{ site.Lastmod.Format "2006-01-02" }}</li>
+        </ul>
+    </div>
+</div>
+

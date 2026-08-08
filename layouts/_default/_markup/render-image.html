@@ -1,0 +1,44 @@
+{{- $isExternal := hasPrefix .Destination "http" -}}
+{{- if not $isExternal -}}
+    {{- $src := .Page.Resources.GetMatch .Destination -}}
+    {{- if not $src -}}
+        {{- $src = resources.Get .Destination -}}
+    {{- end -}}
+
+    {{- if $src -}}
+        {{- $tiny := $src.Resize "300x" -}}
+        {{- $small := $src.Resize "600x" -}}
+        {{- $medium := $src.Resize "900x" -}}
+        {{- $large := $src.Resize "1200x" -}}
+
+        {{- $tinyWebp := $src.Resize "300x webp" -}}
+        {{- $smallWebp := $src.Resize "600x webp" -}}
+        {{- $mediumWebp := $src.Resize "900x webp" -}}
+        {{- $largeWebp := $src.Resize "1200x webp" -}}
+
+        <figure>
+            <picture>
+                <source srcset="{{ $tinyWebp.RelPermalink }} 300w, {{ $smallWebp.RelPermalink }} 600w, {{ $mediumWebp.RelPermalink }} 900w, {{ $largeWebp.RelPermalink }} 1200w" type="image/webp" sizes="(max-width: 768px) 100vw, 768px">
+                <source srcset="{{ $tiny.RelPermalink }} 300w, {{ $small.RelPermalink }} 600w, {{ $medium.RelPermalink }} 900w, {{ $large.RelPermalink }} 1200w" type="{{ $src.MediaType }}" sizes="(max-width: 768px) 100vw, 768px">
+                <img src="{{ $medium.RelPermalink }}" alt="{{ .Text }}" loading="lazy" decoding="async" {{ with .Title }} title="{{ . }}"{{ end }}>
+            </picture>
+            {{- if .Title -}}
+            <figcaption>{{ .Title }}</figcaption>
+            {{- end -}}
+        </figure>
+    {{- else -}}
+        <figure>
+            <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }}>
+            {{- if .Title -}}
+            <figcaption>{{ .Title }}</figcaption>
+            {{- end -}}
+        </figure>
+    {{- end -}}
+{{- else -}}
+    <figure>
+        <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async" {{ with .Title }} title="{{ . }}"{{ end }}>
+        {{- if .Title -}}
+        <figcaption>{{ .Title }}</figcaption>
+        {{- end -}}
+    </figure>
+{{- end -}}
