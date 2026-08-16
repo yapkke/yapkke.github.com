@@ -2,6 +2,7 @@
 title = 'Selected Publications'
 date = 2026-08-16T14:15:59-07:00
 draft = false
+weight = 20
 +++
 
 ## Telemetry

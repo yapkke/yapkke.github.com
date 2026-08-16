@@ -19,12 +19,7 @@
       {{ with .Params.author }} 
       <span class="meta-item"><span class="meta-icon">✍️</span> {{ . }}</span>
       {{ end }}
-      <span class="meta-item" id="page-views">
-        <span class="meta-icon">👁️</span>
-        <span class="meta-text">{{ T "pageViewCount" }}: 
-          <span id="busuanzi_value_page_pv">-</span>
-        </span>
-      </span>
+
     </div>
     <div class="post-detail-content">
       {{ .Content | replaceRE "<img src=\"([^\"]+)\"" "<img src=\"$1\" onclick=\"enlargeImage(this)\"" | safeHTML }}
@@ -38,13 +33,6 @@
   {{ partial "comments-card.html" . }}
   
   <script>
-    // 页面加载完成后显示访问量
-    document.addEventListener('DOMContentLoaded', function() {
-      const pageViewsContainer = document.getElementById('page-views');
-      if (pageViewsContainer) {
-        pageViewsContainer.style.display = 'inline';
-      }
-    });
     
     // 图片点击放大功能
     function enlargeImage(img) {
