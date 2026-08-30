@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+@import url('https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css');
+
+:root {
+    --ctp-rosewater: #dc8a78;
+    --ctp-flamingo: #dd7878;
+    --ctp-pink: #ea76cb;
+    --ctp-mauve: #8839ef;
+    --ctp-red: #d20f39;
+    --ctp-maroon: #e64553;
+    --ctp-peach: #fe640b;
+    --ctp-yellow: #df8e1d;
+    --ctp-green: #40a02b;
+    --ctp-teal: #179299;
+    --ctp-sky: #04a5e5;
+    --ctp-sapphire: #209fb5;
+    --ctp-blue: #1e66f5;
+    --ctp-lavender: #7287fd;
+    --ctp-text: #4c4f69;
+    --ctp-subtext1: #5c5f77;
+    --ctp-subtext0: #6c6f85;
+    --ctp-overlay2: #7c7f93;
+    --ctp-overlay1: #8c8fa1;
+    --ctp-overlay0: #9ca0b0;
+    --ctp-surface2: #acb0be;
+    --ctp-surface1: #bcc0cc;
+    --ctp-surface0: #ccd0da;
+    --ctp-base: #eff1f5;
+    --ctp-mantle: #e6e9ef;
+    --ctp-crust: #dce0e8;
+}
+
+html {
+    background-color: var(--ctp-base);
+    background-image: radial-gradient(circle, var(--ctp-overlay0) 0.8px, transparent 0.8px), radial-gradient(circle, var(--ctp-overlay0) 0.8px, transparent 0.8px);
+    background-size: 5px 20px, 20px 5px;
+    background-position: -2.5px -10px, -10px -2.5px;
+}
+
+body {
+    color: var(--ctp-text);
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 2rem;
+    font-style: normal;
+    font-variation-settings:
+        "MONO" 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    margin: 0;
+}
+
+h1 {
+    font-size: 9rem;
+    font-family: "VT323";
+    grid-column: span 3;
+    white-space: nowrap;
+    margin: 48px;
+    animation: typing-mask 3s steps(14, end) forwards;
+    width: 14ch;
+}
+
+@keyframes typing-mask {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+.content-container {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 3rem;
+}
+
+.file-content-container {
+    width: calc(100vw - 128px);
+    height: calc(100vh - 128px);
+    background-color: var(--ctp-surface0);
+    border-color: var(--ctp-text);
+    border-style: solid;
+    overflow: hidden;
+}
+
+.file-content {
+    padding: 16px;
+    margin: 0;
+    height: 100%;
+    overflow: scroll;
+}
+
+.file {
+    text-align: center;
+    display: inline-block;
+}
+
+
+.os-icon {
+    font-size: 6rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--ctp-subtext0);
+}
+
+p {
+    margin: 0.75rem;
+}
+
+ul {
+    margin: 0.75rem;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 8px;
+    display: inline-block;
+    flex: 1;
+    background-color: var(--ctp-overlay2);
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0.75rem;
+}
+
+.file-header {
+    display: flex;
+    width: 100%;
+    background-color: var(--ctp-overlay2);
+    align-items: center;
+}
+
+.close-btn {
+    font-size: 3rem;
+}
+
+.close-btn:hover {
+    color: var(--ctp-surface0);
+}
+
+.icon-container > .ai {
+    font-size: calc(1.15 * 3rem);
+    vertical-align: calc(-0.125 * 3rem);
+}
+
+.icon-container {
+    grid-column: span 3;
+    text-align: center;
+    font-size: 3rem;
+}
