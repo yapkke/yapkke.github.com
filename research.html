@@ -1,58 +1,160 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="generator" content=
-"HTML Tidy for HTML5 for Linux version 5.8.0">
-<meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
-<title>yapkke</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-</head>
-<body>
-<div class="file-content-container">
-<div class="file-header">
-<h2>~/research.md</h2>
-<a class="close-btn" href="index.html"></a></div>
-<div class="file-content">
-<h3>Telemetry</h3>
-<ul>
-<li><a href="https://doi.org/10.1145/3789240.3829179">CSIG:
-Congestion Signaling for Datacenter Transports </a></li>
-</ul>
-<h3>Clock Synchronization</h3>
-<ul>
-<li><a href="https://doi.org/10.1145/3718958.3750502">Firefly:
-Scalable, Ultra-Accurate Clock Synchronization for Datacenters
-</a></li>
-</ul>
-<h3>Software Defined Networks</h3>
-<ul>
-<li><a href="https://doi.org/10.1145/3098822.3098854">Taking the
-Edge off with Espresso </a></li>
-<li><a href=
-"https://dl.acm.org/doi/10.1145/1672308.1672331">OpenRoads:
-Empowering research in mobile networks </a></li>
-<li><a href=
-"https://dl.acm.org/doi/10.1145/2535372.2535387">Scheduling packets
-over multiple interfaces while respecting user preferences
-</a></li>
-<li><a href=
-"https://www.usenix.org/event/osdi10/tech/full_papers/Sherwood.pdf">
-Can the production network be the testbed? </a></li>
-<li><a href="https://www.youtube.com/watch?v=ov1DZYINg3Y">Using all
-wireless networks around me </a></li>
-</ul>
-<h3>Wireless Sensor Networks</h3>
-<ul>
-<li><a href=
-"https://dl.acm.org/doi/pdf/10.1145/1098918.1098937">Max:
-human-centric search of the physical world </a></li>
-<li><a href="https://ieeexplore.ieee.org/document/4146771/">Simple
-Directional Antennas: Improving Performance in Wireless Multihop
-Networks. </a></li>
-</ul>
-<br>
-<br></div>
-</div>
-</body>
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for HTML5 for Linux version 5.8.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>
+      yapkke
+    </title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  </head>
+  <body>
+    <div class="file-content-container">
+      <div class="file-header">
+        <h2>
+          ~/research.md
+        </h2><a class="close-btn" href="index.html"></a>
+      </div>
+      <div class="file-content">
+        <h3>
+          Telemetry
+        </h3>
+        <p>
+          Lately, my focus has been on high-precision network
+          telemetry and congestion control tailored for AI and
+          scale-out datacenter infrastructure. A recent highlight
+          of this effort is CSIG (Congestion Signaling), an open
+          and lightweight in-band telemetry protocol built to boost
+          datacenter transport efficiency.
+        </p>
+        <ul>
+          <li>
+            <a href="https://doi.org/10.1145/3789240.3829179">CSIG:
+            Congestion Signaling for Datacenter Transports</a>
+          </li>
+        </ul>
+        <h3>
+          Clock Synchronization
+        </h3>
+        <p>
+          My ongoing research focuses on nanosecond-level clock
+          synchronization for large-scale networks and its
+          applications, achieved using swarm-based consensus
+          mechanisms. Rather than relying on traditional top-down
+          architectures like NTP or PTP, network nodes repeatedly
+          probe peer swarms to process timestamp measurements,
+          estimating clock offset and drift to converge on a
+          unified time. External reference signals (such as GPS or
+          atomic clocks) propagate through the swarm, maintaining
+          tight global alignment while mitigating local jitter and
+          path asymmetry errors.
+        </p>
+        <ul>
+          <li>
+            <a href=
+            "https://doi.org/10.1145/3718958.3750502">Firefly:
+            Scalable, Ultra-Accurate Clock Synchronization for
+            Datacenters</a>
+          </li>
+        </ul>
+        <h3>
+          Software Defined Edge Networks
+        </h3>
+        <p>
+          Following my time at Stanford, I joined Google as a
+          Software Engineer specializing in networking and
+          distributed systems. I played a key role in developing
+          Google's SDN-based Internet peering edge routing
+          infrastructure (Espresso). Espresso allowed Google to
+          dynamically manage traffic engineering and
+          application-aware routing at massive global scale across
+          its peering edges, circumventing the restrictions of
+          traditional networking.
+        </p>
+        <ul>
+          <li>
+            <a href=
+            "https://doi.org/10.1145/3098822.3098854">Taking the
+            Edge off with Espresso</a>
+          </li>
+        </ul>
+        <h3>
+          Software Defined Mobile and Testbed Networks
+        </h3>
+        <p>
+          During my PhD and post-doctoral work at Stanford
+          University, I worked alongside key figures in modern
+          networking, making foundational contributions to early
+          Software-Defined Networking (SDN) architectures. My
+          research focused on extending SDN principles and
+          virtualization to campus, home, and mobile wireless
+          networks through key projects like OpenFlow, FlowVisor,
+          and OpenRoads. A major milestone of this work was
+          developing seamless mobility management, enabling mobile
+          devices to transition smoothly between different Wi-Fi
+          access points and cellular/WiMAX networks without
+          dropping active TCP connections or streaming sessions.
+        </p>
+        <ul>
+          <li>
+            <a href=
+            "https://dl.acm.org/doi/10.1145/1672308.1672331">OpenRoads:
+            Empowering research in mobile networks</a>
+          </li>
+          <li>
+            <a href=
+            "https://dl.acm.org/doi/10.1145/2535372.2535387">Scheduling
+            packets over multiple interfaces while respecting user
+            preferences</a>
+          </li>
+          <li>
+            <a href=
+            "https://www.usenix.org/event/osdi10/tech/full_papers/Sherwood.pdf">
+            Can the production network be the testbed?</a>
+          </li>
+          <li>
+            <a href=
+            "https://www.youtube.com/watch?v=ov1DZYINg3Y">Using all
+            wireless networks around me</a>
+          </li>
+        </ul>
+        <h3>
+          Wireless Sensor Networks
+        </h3>
+        <p>
+          My early research focused heavily on wireless sensor
+          networks (WSNs), with a particular emphasis on body
+          sensor networks (BSNs) and human-centric sensor systems.
+          This work explored network architectures and link-layer
+          behaviors at 2.4 GHz for body area networks to support
+          continuous, energy-efficient, and non-intrusive
+          physiological monitoring of patients. This included
+          investigating trade-offs between star and multi-hop
+          architectures to optimize power consumption across
+          energy-constrained on-body sensors. Additionally, he
+          spearheaded projects like MAX, a human-centric physical
+          search system that used sensor tags to help users
+          dynamically locate physical objects while addressing
+          privacy, location tracking, and efficient search
+          mechanisms.
+        </p>
+        <ul>
+          <li>
+            <a href=
+            "https://dl.acm.org/doi/pdf/10.1145/1098918.1098937">Max:
+            human-centric search of the physical world</a>
+          </li>
+          <li>
+            <a href=
+            "https://ieeexplore.ieee.org/document/4146771/">Simple
+            Directional Antennas: Improving Performance in Wireless
+            Multihop Networks.</a>
+          </li>
+        </ul><br>
+        <br>
+      </div>
+    </div>
+  </body>
 </html>
