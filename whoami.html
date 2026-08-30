@@ -24,5 +24,13 @@ English name reflects the traditional Hokkien pronunciation.</p>
 <br>
 <br></div>
 </div>
+<script>
+  document.addEventListener('click', function(e) {
+    const container = document.querySelector('.file-content-container');
+    if (container && !container.contains(e.target)) {
+      window.location.href = 'index.html';
+    }
+  });
+</script>
 </body>
 </html>
