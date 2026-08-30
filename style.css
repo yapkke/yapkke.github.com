@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=VT323&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 @import url('https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css');
 
@@ -41,13 +40,10 @@ html {
 
 body {
     color: var(--ctp-text);
-    font-family: "Google Sans Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-size: 2rem;
-    font-style: normal;
-    font-variation-settings:
-        "MONO" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,11 +52,12 @@ body {
 }
 
 h1 {
-    font-size: 9rem;
-    font-family: "VT323";
+    font-size: 4rem;
+    font-family: "VT323", monospace;
     grid-column: span 3;
     white-space: nowrap;
-    margin: 48px;
+    margin: 24px auto;
+    text-align: center;
     animation: typing-mask 3s steps(14, end) forwards;
     width: 14ch;
 }
@@ -78,65 +75,113 @@ h1 {
 .content-container {
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 3rem;
+    grid-template-rows: auto auto auto;
+    gap: 16px;
+    align-items: center;
 }
 
 .file-content-container {
     width: calc(100vw - 128px);
+    max-width: 900px;
     height: calc(100vh - 128px);
+    max-height: 800px;
     background-color: var(--ctp-surface0);
     border-color: var(--ctp-text);
     border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .file-content {
-    padding: 16px;
+    padding: 24px;
     margin: 0;
-    height: 100%;
-    overflow: scroll;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .file {
     text-align: center;
     display: inline-block;
+    font-weight: 500;
 }
 
+.file p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
 
 .os-icon {
-    font-size: 6rem;
+    font-size: 3.5rem;
+    transition: transform 0.2s ease;
+}
+
+.file:hover .os-icon {
+    transform: translateY(-2px);
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.15s ease, opacity 0.15s ease;
 }
 
-a:hover {
-    color: var(--ctp-subtext0);
+.file-content a {
+    color: var(--ctp-blue);
+    text-decoration: underline;
+    text-decoration-color: var(--ctp-sapphire);
+    text-underline-offset: 3px;
+    font-weight: 500;
+}
+
+.file-content a:hover {
+    color: var(--ctp-mauve);
+    text-decoration-color: var(--ctp-mauve);
+}
+
+.icon-container a:hover,
+.file a:hover {
+    color: var(--ctp-blue);
+    opacity: 0.85;
 }
 
 p {
-    margin: 0.75rem;
+    margin: 0 0 1rem 0;
 }
 
 ul {
-    margin: 0.75rem;
+    margin: 0 0 1.25rem 1.25rem;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 0.35rem;
 }
 
 h2 {
-    font-weight: 400;
-    font-size: 2rem;
-    margin: 8px;
-    display: inline-block;
+    font-weight: 600;
+    font-size: 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
     flex: 1;
-    background-color: var(--ctp-overlay2);
+    color: var(--ctp-base);
 }
 
 h3 {
-    font-weight: 500;
-    font-size: 2rem;
-    margin: 0.75rem;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin: 1.5rem 0 0.5rem 0;
+    color: var(--ctp-mauve);
+}
+
+.file-content h3:first-child {
+    margin-top: 0;
 }
 
 .file-header {
@@ -144,23 +189,30 @@ h3 {
     width: 100%;
     background-color: var(--ctp-overlay2);
     align-items: center;
+    justify-content: space-between;
 }
 
 .close-btn {
-    font-size: 3rem;
+    font-size: 1.5rem;
+    padding-right: 16px;
+    color: var(--ctp-base);
 }
 
 .close-btn:hover {
-    color: var(--ctp-surface0);
+    color: var(--ctp-crust);
 }
 
 .icon-container > .ai {
-    font-size: calc(1.15 * 3rem);
-    vertical-align: calc(-0.125 * 3rem);
+    font-size: calc(1.15 * 1.75rem);
+    vertical-align: calc(-0.125 * 1.75rem);
 }
 
 .icon-container {
     grid-column: span 3;
     text-align: center;
-    font-size: 3rem;
+    font-size: 1.75rem;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
